@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/vim,rust,react,rider,macos,elixir,windows,dotnetcore,aspnetcore,visualstudio,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=vim,rust,react,rider,macos,elixir,windows,dotnetcore,aspnetcore,visualstudio,visualstudiocode
+# Created by https://www.gitignore.io/api/vue,vuejs,vim,vuejs,rust,react,rider,macos,elixir,windows,dotnetcore,aspnetcore,visualstudio,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=vue,vuejs,vim,vuejs,rust,react,rider,macos,elixir,windows,dotnetcore,aspnetcore,visualstudio,visualstudiocode
 
 ### ASPNETCore ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -456,6 +456,18 @@ tags
 # Ignore all local history of files
 .history
 
+### Vue ###
+
+
+
+
+### Vuejs ###
+# Recommended template: Node.gitignore
+
+dist/
+npm-debug.log
+yarn-error.log
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -687,4 +699,4 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-# End of https://www.gitignore.io/api/vim,rust,react,rider,macos,elixir,windows,dotnetcore,aspnetcore,visualstudio,visualstudiocode
+# End of https://www.gitignore.io/api/vue,vuejs,vim,vuejs,rust,react,rider,macos,elixir,windows,dotnetcore,aspnetcore,visualstudio,visualstudiocode
