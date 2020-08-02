@@ -1,17 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { Jumbotron, Container, Button, ButtonToolbar, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-
-import ButtonsShowcase from './showcases/Buttons';
-import ToastsShowcase from './showcases/Toasts';
-
-
-import { MemoryRouter, Switch, Route } from 'react-router-dom';
-
-import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-import { LinkContainer } from 'react-router-bootstrap';
+import { ReactBootstrapExample } from './showcases';
 
 import './App.css';
 
@@ -21,19 +12,25 @@ const About = () => <span>About</span>;
 
 const Users = () => <span>Users</span>;
 
-const App: React.FC = () => {
+export default function App(): ReactElement {
   return (
+    <BrowserRouter>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#features">Features</Nav.Link>
+          <Nav.Link href="#pricing">Pricing</Nav.Link>
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-info">Search</Button>
+        </Form>
+      </Navbar>
 
-    <MemoryRouter>
       <Container className="p-3">
         <Jumbotron>
-          <h1 className="header">
-            Welcome To React-Bootstrap TypeScript Example
-          </h1>
-          <h2>Buttons</h2>
-          <ButtonsShowcase />
-          <h2>Toasts</h2>
-          <ToastsShowcase />
+          <ReactBootstrapExample />
           <h2>
             Current Page is{' '}
             <Switch>
@@ -48,24 +45,23 @@ const App: React.FC = () => {
               </Route>
             </Switch>
           </h2>
+
           <h2>
             Navigate to{' '}
             <ButtonToolbar className="custom-btn-toolbar">
-              <LinkContainer to="/">
+              <Link to="/">
                 <Button>Home</Button>
-              </LinkContainer>
-              <LinkContainer to="/about">
+              </Link>
+              <Link to="/about">
                 <Button>About</Button>
-              </LinkContainer>
-              <LinkContainer to="/users">
+              </Link>
+              <Link to="/users">
                 <Button>Users</Button>
-              </LinkContainer>
+              </Link>
             </ButtonToolbar>
           </h2>
         </Jumbotron>
       </Container>
-    </MemoryRouter>
+    </BrowserRouter>
   );
 };
-
-export default App;
