@@ -1,32 +1,32 @@
 import React, { ReactElement } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import { Jumbotron, Container, Button, ButtonToolbar, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { BrowserRouter, Switch, Route, Link, useParams } from 'react-router-dom';
+import { Jumbotron, Container, Button, ButtonToolbar } from 'react-bootstrap';
+import Menu from './Menu';
 
 import { ReactBootstrapExample } from './showcases';
 
 import './App.css';
 
-const Home = () => <span>Home</span>;
 
-const About = () => <span>About</span>;
 
-const Users = () => <span>Users</span>;
+
 
 export default function App(): ReactElement {
+
+
+  const Home = () => <span>Home</span>;
+
+  const About = () => <span>About</span>;
+  
+  const Users = () => <span>Users</span>;
+  const UserId = () => {
+    const {userId} = useParams();
+    return (<span>User {userId}</span>);}
+
+
   return (
     <BrowserRouter>
-      <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-        </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
-        </Form>
-      </Navbar>
+      <Menu></Menu>
 
       <Container className="p-3">
         <Jumbotron>
@@ -37,8 +37,11 @@ export default function App(): ReactElement {
               <Route path="/about">
                 <About />
               </Route>
-              <Route path="/users">
+              <Route exact path="/users">
                 <Users />
+              </Route>
+              <Route path="/users/:userId">
+                <UserId />
               </Route>
               <Route path="/">
                 <Home />
